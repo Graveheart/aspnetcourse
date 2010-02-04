@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="EventBubblingDemo.EventBubbling"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="400" Height="300">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Button MouseLeftButtonDown="Button_MouseLeftButtonDown" Margin="76,43,107,48" RenderTransformOrigin="0.510999977588654,0.504999995231628" >
+            <Grid  MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Canvas MouseLeftButtonDown="Canvas_MouseLeftButtonDown"
+                Width="0" Height="0" VerticalAlignment="Center">
+                    <Ellipse MouseLeftButtonDown="myEllipse_MouseLeftButtonDown"
+                     x:Name="myEllipse"
+                     Canvas.Left="8" Canvas.Top="-42" Width="70" Height="70"
+                     Fill="Yellow" Stroke="Black" />
+                    <Ellipse Canvas.Left="20" Canvas.Top="-16" Width="8" Height="10"
+                     Fill="Black" />
+                    <Ellipse Canvas.Left="57" Canvas.Top="-16" Width="8" Height="10"
+                     Fill="Black" />
+                    <Path Data="M0.50446928,0.5 A3,3,0,0,0,14.754469,1" Stroke="Black" Height="8.379" Canvas.Left="33.996" Canvas.Top="10.5" Width="15.254" Fill="Black" />
+                    <TextBlock Grid.Column="1" Margin="0,0,0,0" FontSize="23" Canvas.Top="32" Canvas.Left="16.289">Click!</TextBlock>
+                </Canvas>
+            </Grid>
+        </Button>
+    </Grid>
+</UserControl>

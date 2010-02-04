@@ -1,0 +1,499 @@
+---------------------------------------------------------------------
+
+SELECT Name FROM Department
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, JobTitle
+FROM Employee
+
+---------------------------------------------------------------------
+
+INSERT INTO Project(Name, StartDate)
+VALUES('Introduction to SQL Course', '1/1/2006')
+
+---------------------------------------------------------------------
+
+UPDATE Project
+SET EndDate = '8/31/2006'
+WHERE StartDate = '1/1/2006'
+
+---------------------------------------------------------------------
+
+DELETE FROM Project
+WHERE StartDate = '1/1/2006'
+
+---------------------------------------------------------------------
+
+CREATE PROCEDURE EmpDump AS
+  DECLARE @EmpId INT, @EmpFName NVARCHAR(100), 
+    @EmpLName NVARCHAR(100)
+  DECLARE emps CURSOR FOR
+    SELECT EmployeeID, FirstName, LastName FROM Employee
+  OPEN emps
+  FETCH NEXT FROM emps INTO @EmpId, @EmpFName, @EmpLName
+  WHILE (@@FETCH_STATUS = 0) BEGIN
+    PRINT CAST(@EmpId AS VARCHAR(10)) + ' '
+      + @EmpFName + ' ' + @EmpLName
+    FETCH NEXT FROM emps INTO @EmpId, @EmpFName, @EmpLName
+  END
+  CLOSE emps
+  DEALLOCATE emps
+GO
+
+---------------------------------------------------------------------
+
+EXEC EmpDump
+
+---------------------------------------------------------------------
+
+SELECT * FROM Department
+
+---------------------------------------------------------------------
+
+SELECT
+  DepartmentID,
+  Name
+FROM Department
+
+---------------------------------------------------------------------
+
+SELECT LastName, Salary, Salary + 300
+FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT LastName, ManagerID FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, Salary,
+Salary*0.2 AS Bonus FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT FirstName + ' ' + LastName AS [Full Name],
+EmployeeID as [No.] FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT FirstName + '''s last name is ' +
+LastName AS [Our Employees] FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT DepartmentID
+FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT DISTINCT DepartmentID
+FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT LastName, DepartmentID 
+FROM Employee 
+WHERE DepartmentID = 1
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, DepartmentID
+FROM Employee
+WHERE LastName = 'Sullivan'
+
+---------------------------------------------------------------------
+
+SELECT LastName, Salary
+FROM Employee
+WHERE Salary <= 20000
+
+---------------------------------------------------------------------
+
+SELECT LastName, Salary
+FROM Employee
+WHERE Salary BETWEEN 20000 AND 22000
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, ManagerID
+FROM Employee
+WHERE ManagerID IN (109, 16, 3)
+
+---------------------------------------------------------------------
+
+SELECT FirstName FROM Employee
+WHERE FirstName LIKE 'S%'
+
+---------------------------------------------------------------------
+
+SELECT LastName FROM Employee
+WHERE ManagerID IS NULL
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName FROM Employee
+WHERE Salary >= 20000 AND LastName LIKE 'C%'
+
+---------------------------------------------------------------------
+
+SELECT LastName FROM Employee
+WHERE ManagerID IS NOT NULL
+  OR LastName LIKE '%so_'
+
+---------------------------------------------------------------------
+
+SELECT LastName, HireDate
+FROM Employee
+ORDER BY HireDate
+
+---------------------------------------------------------------------
+
+SELECT LastName, HireDate
+FROM Employee
+ORDER BY HireDate DESC
+
+---------------------------------------------------------------------
+
+SELECT LastName, Name AS DepartmentName
+FROM Employee, Department
+
+---------------------------------------------------------------------
+
+SELECT
+  e.EmployeeID, e.LastName, e.DepartmentID, 
+  d.DepartmentID, d.Name AS DepartmentName
+FROM Employee e INNER JOIN Department d 
+  ON e.DepartmentID = d.DepartmentID
+
+---------------------------------------------------------------------
+
+SELECT 
+  e.EmployeeID, e.LastName, e.DepartmentID, 
+  d.DepartmentID, d.Name AS DepartmentName
+FROM Employee e, Department d 
+WHERE e.DepartmentID = d.DepartmentID
+
+---------------------------------------------------------------------
+
+SELECT
+  e.LastName EmpLastName,
+  m.EmployeeID MgrID, m.LastName MgrLastName
+FROM Employee e INNER JOIN Employee m
+  ON e.ManagerID = m.EmployeeID
+
+---------------------------------------------------------------------
+
+SELECT
+  e.LastName EmpLastName,
+  m.EmployeeID MgrID, m.LastName MgrLastName
+FROM Employee e LEFT OUTER JOIN Employee m
+  ON e.ManagerID = m.EmployeeID
+
+
+---------------------------------------------------------------------
+
+SELECT
+  e.LastName EmpLastName,
+  m.EmployeeID MgrID, m.LastName MgrLastName
+FROM Employee e RIGHT OUTER JOIN Employee m
+  ON e.ManagerID = m.EmployeeID
+
+---------------------------------------------------------------------
+
+SELECT
+  e.LastName EmpLastName,
+  m.EmployeeID MgrID, m.LastName MgrLastName
+FROM employee e FULL OUTER JOIN employee m
+  ON e.ManagerID = m.EmployeeID
+
+---------------------------------------------------------------------
+
+SELECT e.FirstName, e.LastName, t.Name as Town, a.AddressText
+FROM Employee e
+  JOIN Address a
+    ON e.AddressID = a.AddressID
+  JOIN Town t
+    ON a.TownID = t.TownID
+
+---------------------------------------------------------------------
+
+SELECT LastName [Last Name], Name [Dept Name]
+FROM Employee CROSS JOIN Department
+
+---------------------------------------------------------------------
+
+SELECT e.EmployeeID, e.LastName, e.DepartmentID, 
+       d.DepartmentID, d.Name AS DepartmentName
+FROM Employee e 
+  INNER JOIN Department d 
+    ON e.DepartmentID = d.DepartmentID
+WHERE d.Name = 'Sales'
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, Salary
+FROM Employee
+WHERE Salary = 
+  (SELECT MAX(Salary) FROM Employee)
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, DepartmentID, Salary
+FROM Employee
+WHERE DepartmentID IN 
+  (SELECT DepartmentID FROM Department
+   WHERE Name='Sales')
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, DepartmentID, Salary
+FROM Employee e
+WHERE Salary = 
+  (SELECT MAX(Salary) FROM Employee 
+   WHERE DepartmentID = e.DepartmentID)
+ORDER BY DepartmentID
+
+---------------------------------------------------------------------
+
+SELECT FirstName, LastName, EmployeeID, ManagerID
+FROM Employee e
+WHERE EXISTS
+  (SELECT EmployeeID
+   FROM Employee m
+   WHERE m.EmployeeID = e.ManagerID
+     AND m.DepartmentID = 1)
+
+---------------------------------------------------------------------
+
+SELECT
+  AVG(Salary) [Average Salary],
+  MAX(Salary) [Max Salary],
+  MIN(Salary) [Min Salary],
+  SUM(Salary) [Salary Sum]
+FROM Employee
+WHERE JobTitle = 'Sales Representative'
+
+---------------------------------------------------------------------
+
+SELECT MIN(HireDate) MinHD, MAX(HireDate) MaxHD
+FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT MIN(LastName), MAX(LastName)
+FROM employee
+
+---------------------------------------------------------------------
+
+SELECT COUNT(*) Cnt FROM Employee
+WHERE DepartmentID = 3
+
+---------------------------------------------------------------------
+
+SELECT
+  COUNT(ManagerID) MgrCount,
+  COUNT(*) AllCount
+FROM Employee
+WHERE DepartmentID = 16
+
+---------------------------------------------------------------------
+
+SELECT
+  AVG(ManagerID) Avg,
+  SUM(ManagerID) / COUNT(*) AvgAll
+FROM Employee
+
+---------------------------------------------------------------------
+
+SELECT e.FirstName, e.LastName, e.HireDate, d.Name
+FROM Employee e 
+  JOIN Department d
+    ON e.DepartmentID = d.DepartmentID
+WHERE e.HireDate = 
+  (SELECT MIN(HireDate) FROM Employee 
+   WHERE DepartmentID = d.DepartmentID)
+
+---------------------------------------------------------------------
+
+SELECT DepartmentID, SUM(Salary)
+FROM Employee
+GROUP BY DepartmentID
+
+---------------------------------------------------------------------
+
+SELECT 
+  DepartmentID, JobTitle, 
+  SUM(Salary) as Salaries,
+  COUNT(*) as Count
+FROM Employee
+GROUP BY DepartmentID, JobTitle
+
+---------------------------------------------------------------------
+
+-- This SQL query is illegal!
+SELECT DepartmentID, COUNT(LastName)
+FROM Employee
+
+---------------------------------------------------------------------
+
+-- This SQL query is illegal!
+SELECT DepartmentID, AVG(Salary)
+FROM Employee
+WHERE AVG(Salary) > 30
+GROUP BY DepartmentID
+
+---------------------------------------------------------------------
+
+SELECT DepartmentID, JobTitle, 
+  SUM(Salary) AS Cost, MIN(HireDate) as StartDate
+FROM Employee
+GROUP BY DepartmentID, JobTitle
+
+---------------------------------------------------------------------
+
+SELECT DepartmentID, COUNT(EmployeeID) as Count, 
+  AVG(Salary) AverageSalary
+FROM Employee
+GROUP BY DepartmentID
+HAVING COUNT(EmployeeID) BETWEEN 3 AND 5
+
+---------------------------------------------------------------------
+
+SELECT COUNT(*) AS EmpCount, d.Name AS DeptName
+FROM Employee e 
+  JOIN Department d
+    ON e.DepartmentID = d.DepartmentID
+WHERE e.HireDate BETWEEN '1999-2-1' AND '2002-12-31'
+GROUP BY d.Name
+HAVING COUNT(*) > 5
+ORDER BY EmpCount DESC
+
+---------------------------------------------------------------------
+
+SELECT Name AS [Project Name], 
+  COALESCE(EndDate, GETDATE()) AS [End Date]
+FROM Project
+
+---------------------------------------------------------------------
+
+SELECT LastName, LEN(LastName) AS LastNameLen,
+  UPPER(LastName) AS UpperLastName
+FROM Employee
+WHERE RIGHT(LastName, 3) = 'son'
+
+---------------------------------------------------------------------
+
+CREATE TABLE Person (
+  PersonID int IDENTITY,
+  Name nvarchar(100) NOT NULL,
+  CONSTRAINT Person_pk PRIMARY KEY(PersonID)
+)
+
+GO
+
+CREATE VIEW [First 10 Persons] AS
+SELECT TOP 10 Name FROM Person
+
+---------------------------------------------------------------------
+
+CREATE TABLE Country (
+  CountryID int IDENTITY,
+  Name nvarchar(100) NOT NULL,
+  CONSTRAINT Country_pk PRIMARY KEY(CountryID)
+)
+GO
+CREATE TABLE City (
+  CityID int IDENTITY,
+  Name nvarchar(100) NOT NULL,
+  CountryID int NOT NULL,
+  CONSTRAINT Town_pk PRIMARY KEY(CityID)
+)
+
+---------------------------------------------------------------------
+
+-- Add a foreign key constraint City --> Country
+ALTER TABLE City
+ADD CONSTRAINT City_Country_fk
+  FOREIGN KEY (CountryID)
+  REFERENCES Country(CountryID)
+
+-- Add column Population to the table Country
+ALTER TABLE Country ADD Population int
+
+-- Remove column Population from the table Country
+ALTER TABLE Country DROP COLUMN Population
+
+---------------------------------------------------------------------
+
+DROP TABLE Person
+
+ALTER TABLE City
+DROP CONSTRAINT City_Country_fk
+
+---------------------------------------------------------------------
+
+REVOKE SELECT ON Employee FROM public
+
+---------------------------------------------------------------------
+
+CREATE TABLE [Group] (
+  GroupID int IDENTITY,
+  Name nvarchar(100) NOT NULL,
+  CONSTRAINT Group_pk PRIMARY KEY(GroupID)
+)
+
+CREATE TABLE [User] (
+  UserID int IDENTITY,
+  UserName nvarchar(100) NOT NULL,
+  GroupID int NOT NULL,
+  CONSTRAINT User_pk PRIMARY KEY(UserID),
+  CONSTRAINT User_Group_fk FOREIGN KEY(GroupID)
+    REFERENCES [Group](GroupID)
+)
+
+---------------------------------------------------------------------
+
+INSERT INTO EmployeeProject
+VALUES (229, 25)
+
+INSERT INTO Project(Name, StartDate)
+VALUES ('New project', GETDATE())
+
+INSERT INTO Project(Name, StartDate)
+  SELECT Name + ' Restructuring', GETDATE()
+  FROM Department
+
+---------------------------------------------------------------------
+
+UPDATE Employee
+SET LastName = 'Brown'
+WHERE EmployeeID = 1
+
+UPDATE Employee
+SET Salary = Salary * 1.10,
+  JobTitle = 'Senior ' + JobTitle
+WHERE DepartmentID = 3
+
+---------------------------------------------------------------------
+
+UPDATE Employee
+SET JobTitle = 'Senior ' + JobTitle
+FROM Employee e 
+  JOIN Department d
+    ON e.DepartmentID = d.DepartmentID
+WHERE d.Name = 'Sales'
+
+---------------------------------------------------------------------
+
+-- This will execute successfully
+DELETE FROM Employee WHERE EmployeeID = 293
+
+-- This will fail due to foreign key constraint
+DELETE FROM Employee WHERE EmployeeID = 1
+
+---------------------------------------------------------------------
+
+TRUNCATE TABLE [User]
+
+---------------------------------------------------------------------

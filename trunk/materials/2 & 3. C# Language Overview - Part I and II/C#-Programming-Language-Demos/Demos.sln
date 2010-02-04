@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Digits", "Digits-Demo\Digits.csproj", "{BAA13736-9689-4E66-AF9F-97C7610C886F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-6-XML-Comments", "XML-Documentation-Demo\Demo-6-XML-Comments.csproj", "{8BB42CD5-1D1A-419D-915D-D80005CE3EC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAA13736-9689-4E66-AF9F-97C7610C886F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA13736-9689-4E66-AF9F-97C7610C886F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA13736-9689-4E66-AF9F-97C7610C886F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA13736-9689-4E66-AF9F-97C7610C886F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB42CD5-1D1A-419D-915D-D80005CE3EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB42CD5-1D1A-419D-915D-D80005CE3EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB42CD5-1D1A-419D-915D-D80005CE3EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB42CD5-1D1A-419D-915D-D80005CE3EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Application Life Cycle\", "Application Life Cycle\", "{4CDA0BD9-70A7-434F-8FCE-FEB7E4FE03D7}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/Application Life Cycle"
+		Debug.AspNetCompiler.PhysicalPath = "D:\prj\NASD\CORE .NET\Trainer\3.8. ASP.NET Architecture\Demos\Application Life Cycle\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Application Life Cycle\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Application Life Cycle"
+		Release.AspNetCompiler.PhysicalPath = "D:\prj\NASD\CORE .NET\Trainer\3.8. ASP.NET Architecture\Demos\Application Life Cycle\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Application Life Cycle\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2279"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CDA0BD9-70A7-434F-8FCE-FEB7E4FE03D7}.Debug|.NET.ActiveCfg = Debug|.NET
+		{4CDA0BD9-70A7-434F-8FCE-FEB7E4FE03D7}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
