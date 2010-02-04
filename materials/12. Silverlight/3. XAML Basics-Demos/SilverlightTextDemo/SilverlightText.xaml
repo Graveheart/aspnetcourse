@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="SilverlightTextDemo.SilverlightText"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="400" Height="300">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <TextBlock>
+    <Run FontStyle="Italic" FontFamily="Georgia" Foreground="Red" Text="Rich" />
+    <Run FontSize="30" FontFamily="Comic Sans MS" Foreground="Blue" Text="Text" />
+    <Run FontFamily="Arial Black" Foreground="Orange" FontSize="100" Text="in" />
+    <LineBreak/>
+    <Run FontFamily="Courier New" FontWeight="Bold" Foreground="Green" Text="a"/> 
+    <Run FontFamily="Verdana" TextDecorations="Underline" Text="TextBlock"/>
+    <LineBreak/>
+    <Run FontSize="24" FontWeight="Bold" FontFamily="Times New Roman" Foreground="#7fffff00" Text="Times New Roman, 24pt, Bold, Yellow"/>
+    <LineBreak/>
+    <Run FontSize="36" FontWeight="Light" FontFamily="Arial" Foreground="Blue" Text="Arial, 36pt, Light, Blue"/>
+        </TextBlock>
+    </Grid>
+</UserControl>

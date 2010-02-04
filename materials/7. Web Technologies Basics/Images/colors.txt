@@ -1,0 +1,16 @@
+site background: #FFFFFF
+site text color: #4B3E82
+
+left menu background: #F2F3F1
+left menu heading colors:#424284
+left menu links color:#006699
+
+main content, top links background &
+border: #E6DEF5
+main content background:#F9F4FD
+top links color:#0000CC
+
+footer background: #59518C
+footer text color: #FFFFFF
+
+<meta http-equiv="Content-type" content="text/html; windows-1251" />

@@ -1,0 +1,12 @@
+<project SchemaVersion="1.3">
+    <assemblies>
+        <assembly location=".\XML-Documentation-Demo\bin\Debug\Demo-6-XML-Comments.exe" documentation=".\XML-Documentation-Demo\bin\Debug\Demo-6-XML-Comments.XML" />
+    </assemblies>
+    <documenters>
+        <documenter name="MSDN">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="An NDoc Documented Class Library" />
+        </documenter>
+    </documenters>
+</project>

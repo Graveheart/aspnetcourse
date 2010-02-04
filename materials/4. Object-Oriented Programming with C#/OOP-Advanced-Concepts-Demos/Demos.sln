@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleInheritance", "SimpleInheritance\SimpleInheritance.csproj", "{98E04752-90C2-4C08-B704-ACD177FE92FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitiveInheritance", "TransitiveInheritance\TransitiveInheritance.csproj", "{24D9B5AB-278E-410C-8485-56E3876B4A16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{3CEB2B59-B6D6-4439-8E22-B87EF42DCF48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractClasses", "AbstractClasses\AbstractClasses.csproj", "{94CC7AF8-0EC4-4E8C-A047-3651C5588A5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98E04752-90C2-4C08-B704-ACD177FE92FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98E04752-90C2-4C08-B704-ACD177FE92FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98E04752-90C2-4C08-B704-ACD177FE92FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98E04752-90C2-4C08-B704-ACD177FE92FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24D9B5AB-278E-410C-8485-56E3876B4A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D9B5AB-278E-410C-8485-56E3876B4A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D9B5AB-278E-410C-8485-56E3876B4A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D9B5AB-278E-410C-8485-56E3876B4A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CEB2B59-B6D6-4439-8E22-B87EF42DCF48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEB2B59-B6D6-4439-8E22-B87EF42DCF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEB2B59-B6D6-4439-8E22-B87EF42DCF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEB2B59-B6D6-4439-8E22-B87EF42DCF48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94CC7AF8-0EC4-4E8C-A047-3651C5588A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94CC7AF8-0EC4-4E8C-A047-3651C5588A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94CC7AF8-0EC4-4E8C-A047-3651C5588A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94CC7AF8-0EC4-4E8C-A047-3651C5588A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

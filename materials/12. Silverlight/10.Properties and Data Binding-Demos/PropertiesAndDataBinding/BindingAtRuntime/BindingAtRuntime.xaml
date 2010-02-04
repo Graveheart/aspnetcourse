@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="BindingAtRuntime.BindingAtRuntime"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="400" Height="300">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+            <TextBox x:Name="myTextBox" Text="None" Width="100" Margin="10" ></TextBox>
+            <Button x:Name="buttonDateTimeNow" Width="100" Height="25"
+                     Click="buttonDateTimeNow_Click"
+                    Content="Get current time"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
