@@ -1,8 +1,0 @@
-﻿<UserControl x:Class="InteractionWithTheUser.EventListeners"
-    xmlns="http://schemas.microsoft.com/client/2007" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    Width="400" Height="300">
-    <Grid x:Name="LayoutRoot" Background="White">
-        <Ellipse x:Name="myEllipse" Fill="Orange" Width="300" Height="100" />
-    </Grid>
-</UserControl>
